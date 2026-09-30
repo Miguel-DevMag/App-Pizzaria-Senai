@@ -10,32 +10,43 @@
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         android:background="@color/background_cream"
-        android:elevation="4dp">
+        android:elevation="4dp"
+        android:padding="20dp">
 
         <ImageView
+            android:id="@+id/btnMenu"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="Abrir menu lateral"
+            android:focusable="true"
             android:src="@drawable/ic_menu_hamburguer"
-            app:tint="@color/text_dark" />
+            app:tint="#212121" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="sans-serif-medium"
             android:text="Nosso Cardápio"
-            android:textColor="@color/text_dark"
+            android:textColor="#212121"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/btnCart"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="Ver carrinho de compras"
+            android:focusable="true"
             android:src="@drawable/ic_carrinho"
             app:tint="@color/primary_red" />
     </RelativeLayout>
@@ -51,7 +62,7 @@
             android:orientation="vertical"
             android:paddingBottom="32dp">
 
-            <!-- BARRA DE PESQUISA COM ID -->
+            <!-- BARRA DE PESQUISA -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -65,6 +76,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:contentDescription="Ícone de pesquisa"
                     android:src="@android:drawable/ic_menu_search"
                     app:tint="#888888" />
 
@@ -75,48 +87,63 @@
                     android:layout_marginStart="12dp"
                     android:background="@android:color/transparent"
                     android:hint="O que você deseja comer hoje?"
+                    android:inputType="textCapSentences"
+                    android:textColor="#212121"
                     android:textColorHint="#888888"
-                    android:textSize="14sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
-            <!-- CATEGORIAS -->
+            <!-- FILTROS DE CATEGORIA -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:scrollbars="none">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingHorizontal="20dp">
+
                     <TextView
+                        android:id="@+id/chipTradicionais"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_chip"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:paddingHorizontal="20dp"
                         android:paddingVertical="8dp"
                         android:text="Tradicionais"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
+
                     <TextView
+                        android:id="@+id/chipDoces"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:background="@drawable/bg_search"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:paddingHorizontal="20dp"
                         android:paddingVertical="8dp"
                         android:text="Doces"
-                        android:textColor="@color/text_dark" />
+                        android:textColor="#212121" />
+
                     <TextView
+                        android:id="@+id/chipBebidas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:background="@drawable/bg_search"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:paddingHorizontal="20dp"
                         android:paddingVertical="8dp"
                         android:text="Bebidas"
-                        android:textColor="@color/text_dark" />
+                        android:textColor="#212121" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -127,7 +154,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="12dp"
                 android:text="Mais Pedidas"
-                android:textColor="@color/text_dark"
+                android:textColor="#212121"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -138,48 +165,60 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:gravity="center_vertical">
+                    android:padding="12dp">
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="0dp">
+
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:contentDescription="Foto da Pizza de Calabresa"
                             android:scaleType="centerCrop"
                             android:src="@drawable/pizza_calabresa" />
                     </androidx.cardview.widget.CardView>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="16dp">
+
                         <TextView
                             android:id="@+id/title1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
                             android:text="Calabresa"
-                            android:textColor="@color/text_dark"
+                            android:textColor="#212121"
                             android:textSize="18sp"
                             android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/desc1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/title1"
                             android:layout_marginTop="4dp"
-                            android:text="Molho de tomate, mussarela e calabresa."
-                            android:textColor="#888888"
-                            android:textSize="12sp"
+                            android:ellipsize="end"
                             android:maxLines="2"
-                            android:ellipsize="end"/>
+                            android:text="Molho de tomate, mussarela e calabresa."
+                            android:textColor="#757575"
+                            android:textSize="13sp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -189,7 +228,7 @@
                             android:textColor="@color/primary_red"
                             android:textSize="16sp"
                             android:textStyle="bold" />
-                        <!-- Botão com ID -->
+
                         <TextView
                             android:id="@+id/btnCart1"
                             android:layout_width="32dp"
@@ -197,6 +236,8 @@
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentBottom="true"
                             android:background="@drawable/bg_chip"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:text="+"
                             android:textColor="@android:color/white"
@@ -213,47 +254,60 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:gravity="center_vertical">
+                    android:padding="12dp">
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="0dp">
+
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:contentDescription="Foto da Pizza de Frango com Catupiry"
                             android:scaleType="centerCrop"
                             android:src="@drawable/pizza_frango" />
                     </androidx.cardview.widget.CardView>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="16dp">
+
                         <TextView
                             android:id="@+id/title2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
                             android:text="Frango c/ Catupiry"
-                            android:textColor="@color/text_dark"
+                            android:textColor="#212121"
                             android:textSize="18sp"
                             android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/desc2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/title2"
                             android:layout_marginTop="4dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
                             android:text="Frango desfiado coberto com Catupiry."
-                            android:textColor="#888888"
-                            android:textSize="12sp"
-                            android:maxLines="2"/>
+                            android:textColor="#757575"
+                            android:textSize="13sp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -263,6 +317,7 @@
                             android:textColor="@color/primary_red"
                             android:textSize="16sp"
                             android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/btnCart2"
                             android:layout_width="32dp"
@@ -270,6 +325,8 @@
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentBottom="true"
                             android:background="@drawable/bg_chip"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:text="+"
                             android:textColor="@android:color/white"
@@ -286,47 +343,60 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:gravity="center_vertical">
+                    android:padding="12dp">
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="0dp">
+
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:contentDescription="Foto da Pizza de Mussarela"
                             android:scaleType="centerCrop"
                             android:src="@drawable/pizza_queijo" />
                     </androidx.cardview.widget.CardView>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="16dp">
+
                         <TextView
                             android:id="@+id/title3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
                             android:text="Mussarela Clássica"
-                            android:textColor="@color/text_dark"
+                            android:textColor="#212121"
                             android:textSize="18sp"
                             android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/desc3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/title3"
                             android:layout_marginTop="4dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
                             android:text="Camada de mussarela, tomate e orégano."
-                            android:textColor="#888888"
-                            android:textSize="12sp"
-                            android:maxLines="2"/>
+                            android:textColor="#757575"
+                            android:textSize="13sp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -336,6 +406,7 @@
                             android:textColor="@color/primary_red"
                             android:textSize="16sp"
                             android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/btnCart3"
                             android:layout_width="32dp"
@@ -343,6 +414,8 @@
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentBottom="true"
                             android:background="@drawable/bg_chip"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:text="+"
                             android:textColor="@android:color/white"
@@ -351,7 +424,6 @@
                     </RelativeLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
